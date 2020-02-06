@@ -1,0 +1,13 @@
+[package]
+edition = "2018"
+name = "hd"
+version = "0.1.0"
+authors = ["David Wildasin <dragonmaus@posteo.net>"]
+publish = false
+description = "Print a hexdump of standard input"
+categories = ["command-line-utilities"]
+license = "BSD-3-Clause-Clear"
+repository = "https://git.dragonma.us/dragonmaus/hd.rs"
+
+[dependencies]
+my = { path = "../my" }
