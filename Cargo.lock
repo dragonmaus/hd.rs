@@ -2,12 +2,12 @@
 # It is not intended for manual editing.
 [[package]]
 name = "hd"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
- "my 0.1.0",
+ "my",
 ]
 
 [[package]]
 name = "my"
 version = "0.1.0"
-
+source = "git+https://git.dragonma.us/dragonmaus/my.rs#f3c016c3a753aa693020d7955e9941d8379be0fa"
