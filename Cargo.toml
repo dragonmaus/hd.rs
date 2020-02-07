@@ -10,4 +10,4 @@ license = "BSD-3-Clause-Clear"
 repository = "https://git.dragonma.us/dragonmaus/hd.rs"
 
 [dependencies]
-my = { git = "https://git.dragonma.us/dragonmaus/my.rs", version = "0.1" }
+my = { git = "https://gitlab.com/dragonmaus/my.rs", version = "0.1" }
