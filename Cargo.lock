@@ -10,4 +10,4 @@ dependencies = [
 [[package]]
 name = "my"
 version = "0.1.0"
-source = "git+https://git.dragonma.us/dragonmaus/my.rs#f3c016c3a753aa693020d7955e9941d8379be0fa"
+source = "git+https://gitlab.com/dragonmaus/my.rs#f3c016c3a753aa693020d7955e9941d8379be0fa"
