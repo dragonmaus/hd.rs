@@ -1,13 +1,13 @@
 [package]
-edition = "2018"
 name = "hd"
 version = "0.1.1"
 authors = ["David Wildasin <dragonmaus@posteo.net>"]
-publish = false
+edition = "2018"
 description = "Print a hexdump of standard input"
-categories = ["command-line-utilities"]
-license = "BSD-3-Clause-Clear"
 repository = "https://git.dragonma.us/dragonmaus/hd.rs"
+license = "BSD-3-Clause-Clear"
+categories = ["command-line-utilities"]
+publish = false
 
 [dependencies]
-my = { git = "https://gitlab.com/dragonmaus/my.rs", version = "0.1" }
+program = { git = "https://git.dragonma.us/dragonmaus/program.rs", version = "1" }

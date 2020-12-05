@@ -1,7 +1,6 @@
-use my::program_main;
 use std::io::{self, Read};
 
-program_main!("hd");
+program::main!("hd");
 
 struct Chunkable<I: Iterator<Item = io::Result<u8>>> {
     iter: I,

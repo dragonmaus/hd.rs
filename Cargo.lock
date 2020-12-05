@@ -4,10 +4,10 @@
 name = "hd"
 version = "0.1.1"
 dependencies = [
- "my",
+ "program",
 ]
 
 [[package]]
-name = "my"
-version = "0.1.0"
-source = "git+https://gitlab.com/dragonmaus/my.rs#f3c016c3a753aa693020d7955e9941d8379be0fa"
+name = "program"
+version = "1.1.0"
+source = "git+https://git.dragonma.us/dragonmaus/program.rs#0b209ce9062e38d1b50191259394cab83619cd3b"
