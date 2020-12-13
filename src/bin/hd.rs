@@ -1,7 +1,5 @@
 use std::io::{self, Read};
 
-program::main!("hd");
-
 struct Chunkable<I: Iterator<Item = io::Result<u8>>> {
     iter: I,
     size: usize,
@@ -33,7 +31,7 @@ impl<I: Iterator<Item = io::Result<u8>>> Iterator for Chunkable<I> {
     }
 }
 
-fn program() -> io::Result<i32> {
+fn main() {
     let input = io::stdin();
     let mut input = Chunkable::new(input.lock().bytes(), 16);
     let mut index = 0;
@@ -63,7 +61,7 @@ fn program() -> io::Result<i32> {
                 output.push_str("  |");
                 for c in bytes.iter().map(|b| {
                     let b = char::from(*b);
-                    if b < ' ' || b > '~' {
+                    if !(' '..='~').contains(&b) {
                         '.'
                     } else {
                         b
@@ -81,5 +79,4 @@ fn program() -> io::Result<i32> {
     if index > 0 {
         println!("{:08x}", index);
     }
-    Ok(0)
 }
