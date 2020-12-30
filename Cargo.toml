@@ -8,6 +8,3 @@ repository = "https://git.dragonma.us/dragonmaus/hd.rs"
 license = "BSD-3-Clause-Clear"
 categories = ["command-line-utilities"]
 publish = false
-
-[dependencies]
-program = { git = "https://git.dragonma.us/dragonmaus/program.rs", version = "1" }

@@ -3,11 +3,3 @@
 [[package]]
 name = "hd"
 version = "0.1.2"
-dependencies = [
- "program",
-]
-
-[[package]]
-name = "program"
-version = "1.1.0"
-source = "git+https://git.dragonma.us/dragonmaus/program.rs#0b209ce9062e38d1b50191259394cab83619cd3b"
