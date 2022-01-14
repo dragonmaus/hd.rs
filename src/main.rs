@@ -24,7 +24,7 @@ impl<I: Iterator<Item = io::Result<u8>>> Iterator for Chunkable<I> {
                         return None;
                     }
                     break;
-                }
+                },
             }
         }
         Some(vec)
@@ -35,45 +35,58 @@ fn main() {
     let input = io::stdin();
     let mut input = Chunkable::new(input.lock().bytes(), 16);
     let mut index = 0;
+    let mut zeros = 0;
     loop {
         match input.next() {
             None => break,
             Some(bytes) => {
                 let ilen = bytes.len();
-                let mut output = String::new();
 
-                output.push_str(&format!("{:08x}", index));
-
-                // 0..16 is necessary here
-                #[allow(clippy::needless_range_loop)]
-                for i in 0..16 {
-                    if i % 8 == 0 {
-                        output.push(' ');
-                    }
-                    output.push(' ');
-                    if i >= ilen {
-                        output.push_str("  ");
-                    } else {
-                        output.push_str(&format!("{:02x}", bytes[i]));
-                    }
+                if ilen == 16 && bytes.iter().all(|&b| b == 0) {
+                    zeros += 1;
+                } else {
+                    zeros = 0;
                 }
 
-                output.push_str("  |");
-                for c in bytes.iter().map(|b| {
-                    let b = char::from(*b);
-                    if !(' '..='~').contains(&b) {
-                        '.'
-                    } else {
-                        b
-                    }
-                }) {
-                    output.push(c);
-                }
-                output.push('|');
+                match zeros {
+                    0 | 1 => {
+                        let mut output = String::new();
 
-                println!("{}", output);
+                        output.push_str(&format!("{:08x}", index));
+
+                        // 0..16 is necessary here
+                        #[allow(clippy::needless_range_loop)]
+                        for i in 0..16 {
+                            if i % 8 == 0 {
+                                output.push(' ');
+                            }
+                            output.push(' ');
+                            if i >= ilen {
+                                output.push_str("  ");
+                            } else {
+                                output.push_str(&format!("{:02x}", bytes[i]));
+                            }
+                        }
+
+                        output.push_str("  |");
+                        for c in bytes.iter().map(|b| {
+                            let b = char::from(*b);
+                            if !(' '..='~').contains(&b) {
+                                '.'
+                            } else {
+                                b
+                            }
+                        }) {
+                            output.push(c);
+                        }
+                        output.push('|');
+                        println!("{}", output);
+                    },
+                    2 => println!("*"),
+                    _ => (),
+                }
                 index += ilen;
-            }
+            },
         }
     }
     if index > 0 {
