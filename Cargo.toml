@@ -1,8 +1,9 @@
 [package]
 name = "hd"
-version = "1.1.1"
+version = "1.1.2"
 authors = ["David Wildasin <dragonmaus@posteo.net>"]
-edition = "2021"
+edition = "2018"
+rust-version = "1.35.0"
 description = "Print a hexdump of standard input"
 repository = "https://git.dragonma.us/rust/hd"
 license = "BSD-3-Clause-Clear"
